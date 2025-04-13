@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор модели ноутбука</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        select, button {
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Выберите модель ноутбука</h1>
+<select id="laptopModel">
+    <option value="">--Выберите модель--</option>
+    <option value="model1">Ноутбук A</option>
+    <option value="model2">Ноутбук B</option>
+    <option value="model3">Ноутбук C</option>
+</select>
+<button onclick="showDetails()">Показать детали</button>
+
+<div class="result" id="result"></div>
+
+<script>
+    function showDetails() {
+        const model = document.getElementById('laptopModel').value;
+        const resultDiv = document.getElementById('result');
+        let details = '';
+
+        switch (model) {
+            case 'model1':
+                details = `
+                    <h2>Ноутбук A</h2>
+                    <p>Можно заменить:</p>
+                    <ul>
+                        <li>Процессор: Intel Core i5, Intel Core i7</li>
+                        <li>Видеокарта: NVIDIA GeForce GTX 1650, NVIDIA GeForce RTX 2060</li>
+                        <li>Оперативная память: 8GB, 16GB DDR4</li>
+                        <li>Накопитель: SSD 256GB, SSD 512GB</li>
+                    </ul>
+                `;
+                break;
+            case 'model2':
+                details = `
+                    <h2>Ноутбук B</h2>
+                    <p>Можно заменить:</p>
+                    <ul>
+                        <li>Процессор: AMD Ryzen 5, AMD Ryzen 7</li>
+                        <li>Видеокарта: AMD Radeon RX 5500M, NVIDIA GeForce GTX 1660 Ti</li>
+                        <li>Оперативная память: 8GB, 16GB DDR4</li>
+                        <li>Накопитель: SSD 512GB, HDD 1TB</li>
+                    </ul>
+                `;
+                break;
+            case 'model3':
+                details = `
+                    <h2>Ноутбук C</h2>
+                    <p>Можно заменить:</p>
+                    <ul>
+                        <li>Процессор: Intel Core i5, Intel Core i9</li>
+                        <li>Видеокарта: NVIDIA GeForce RTX 3070, NVIDIA GeForce RTX 3080</li>
+                        <li>Оперативная память: 16GB, 32GB DDR4</li>
+                        <li>Накопитель: SSD 1TB, NVMe 1TB</li>
+                    </ul>
+                `;
+                break;
+            default:
+                details = '<p>Пожалуйста, выберите модель ноутбука.</p>';
+        }
+
+        resultDiv.innerHTML = details;
+        resultDiv.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
